@@ -37,7 +37,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/alertifyjs/build/css/alertify.min.css",
-              "node_modules/alertifyjs/build/css/themes/default.min.css"
+              "node_modules/alertifyjs/build/css/themes/default.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-ripple-multiple.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate.css"
             ],
             "scripts": [
                "node_modules/bootstrap/dist/js/bootstrap.min.js",
