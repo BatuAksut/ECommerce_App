@@ -13,3 +13,4 @@ C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Application\obj\Debug\net8.0\Ap
 C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Application\obj\Debug\net8.0\refint\Application.dll
 C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Application\obj\Debug\net8.0\Application.pdb
 C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Application\obj\Debug\net8.0\ref\Application.dll
+C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Application\obj\Debug\net8.0\Application.sourcelink.json

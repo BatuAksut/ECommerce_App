@@ -17,3 +17,4 @@ C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Persistence\obj\Debug\net8.0\Pe
 C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Persistence\obj\Debug\net8.0\ref\Persistence.dll
 C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Persistence\bin\Debug\net8.0\Persistence.runtimeconfig.json
 C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Persistence\obj\Debug\net8.0\Persistence.genruntimeconfig.cache
+C:\Users\PC\Desktop\ECommerceApp\ECommerceServer\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json

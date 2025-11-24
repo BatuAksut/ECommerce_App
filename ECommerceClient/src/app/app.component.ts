@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from './services/ui/custom-toastr.service';
 import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
+import { HttpClient } from '@angular/common/http';
 declare var $: any;
 
 @Component({
@@ -27,3 +28,7 @@ export class AppComponent {
 }
 
 
+
+$.get("https://localhost:7287/api/Products").done(function(data:any) {
+  console.log(data);
+});
