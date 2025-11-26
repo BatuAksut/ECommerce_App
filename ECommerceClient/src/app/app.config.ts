@@ -25,6 +25,7 @@ export const appConfig: ApplicationConfig = {
       closeButton: true,
     }),
     {provide:"baseUrl", useValue: "https://localhost:7287/api",multi:true},
-    provideHttpClient()
+    provideHttpClient(),
+  
   ]
 };

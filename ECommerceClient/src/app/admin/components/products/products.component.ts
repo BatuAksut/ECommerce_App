@@ -3,10 +3,13 @@ import { BaseComponent, SpinnerType } from '../../../base/base.component';
 import { HttpClientService } from '../../../services/common/http-client.service';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { HttpClient } from '@angular/common/http';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { CreateComponent } from "./create/create.component";
+import { ListComponent } from "./list/list.component";
 
 @Component({
   selector: 'app-products',
-  imports: [NgxSpinnerModule],
+  imports: [NgxSpinnerModule, MatSidenavModule, CreateComponent, ListComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
