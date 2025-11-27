@@ -1,4 +1,4 @@
-export interface Product {
+export interface Create_Product {
     name: string;
     stock: number;
     price: number;

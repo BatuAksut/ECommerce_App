@@ -20,11 +20,6 @@ export class ProductsComponent extends BaseComponent {
   }
 
   ngOnInit(): void {
-    this.showSpinner(SpinnerType.BallClipRotate);
-    this.httpClientService.get({controller:"products"}).subscribe(data=>{
-      console.log(data);
-      this.hideSpinner(SpinnerType.BallClipRotate);
-     
-    });
+    
     
 }}

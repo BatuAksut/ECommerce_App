@@ -14,10 +14,41 @@
           "Infrastructure.dll": {}
         }
       },
+      "FluentValidation/12.1.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.1.0.0"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/11.3.1": {
+        "dependencies": {
+          "FluentValidation": "12.1.0",
+          "FluentValidation.DependencyInjectionExtensions": "12.1.0"
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.3.1.0"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/12.1.0": {
+        "dependencies": {
+          "FluentValidation": "12.1.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.1.0.0"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore/8.0.21": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "8.0.21",
-          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.21",
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.Logging": "8.0.1"
         },
@@ -36,25 +67,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/8.0.21": {},
-      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "8.0.0"
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
       "Microsoft.Extensions.Caching.Memory/8.0.1": {
         "dependencies": {
-          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
-          "Microsoft.Extensions.Options": "8.0.2",
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.Options": "8.0.2"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
@@ -108,8 +125,7 @@
       },
       "Microsoft.Extensions.Options/8.0.2": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Options.dll": {
@@ -118,17 +134,12 @@
           }
         }
       },
-      "Microsoft.Extensions.Primitives/8.0.0": {
-        "runtime": {
-          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
-          }
-        }
-      },
       "Application/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
+          "FluentValidation": "12.1.0",
+          "FluentValidation.AspNetCore": "11.3.1",
+          "FluentValidation.DependencyInjectionExtensions": "12.1.0",
           "Microsoft.EntityFrameworkCore": "8.0.21"
         },
         "runtime": {
@@ -154,6 +165,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "FluentValidation/12.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FqWEn8BdbbFEHGanj9K8SVo+LyBeFWy2rolaE+e1TNUbifr8M7Iss+I1AqTSc8kjKtvjl/WN4XIHiRpslh42bA==",
+      "path": "fluentvalidation/12.1.0",
+      "hashPath": "fluentvalidation.12.1.0.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/11.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FjkfrGGwC+25oH8QpX1ti3gxkFjDDtotkAQWyQz2CkwQwEfRKTANjhh77I79kY8dov2ydK1SY+e4jiOWsbbDdQ==",
+      "path": "fluentvalidation.aspnetcore/11.3.1",
+      "hashPath": "fluentvalidation.aspnetcore.11.3.1.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/12.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p9ZnpVCUvkelSfqFYZP9aMtnuRlDRkrAAPqjQGG+1mVVn8zxE0bc1/RAFRBZKsPglbMBQOx8wXOZhg2fGstacQ==",
+      "path": "fluentvalidation.dependencyinjectionextensions/12.1.0",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.12.1.0.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore/8.0.21": {
       "type": "package",
       "serviceable": true,
@@ -167,20 +199,6 @@
       "sha512": "sha512-1ZEXvRk8Rk+MfW06EmSYg7GQJZdOocJf61nezBmC2Kti0barUART0MHWgNzQox1lIzw9uv3A1HWJUjmPswCO6w==",
       "path": "microsoft.entityframeworkcore.abstractions/8.0.21",
       "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.21.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Analyzers/8.0.21": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-MGX1NkW44ju8yIzfg+ao/YITHyA23EThp8HfuNp5zaqihL+kNORVMUUnewBjakiCq0938bzFKu9HRmZsXS4b2g==",
-      "path": "microsoft.entityframeworkcore.analyzers/8.0.21",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.21.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3KuSxeHoNYdxVYfg2IRZCThcrlJ1XJqIXkAWikCsbm5C/bCjv7G0WoKDyuR98Q+T607QT2Zl5GsbGRkENcV2yQ==",
-      "path": "microsoft.extensions.caching.abstractions/8.0.0",
-      "hashPath": "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Memory/8.0.1": {
       "type": "package",
@@ -223,13 +241,6 @@
       "sha512": "sha512-dWGKvhFybsaZpGmzkGCbNNwBD1rVlWzrZKANLW/CcbFJpCEceMCGzT7zZwHOGBCbwM0SzBuceMj5HN1LKV1QqA==",
       "path": "microsoft.extensions.options/8.0.2",
       "hashPath": "microsoft.extensions.options.8.0.2.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Primitives/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
-      "path": "microsoft.extensions.primitives/8.0.0",
-      "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
     },
     "Application/1.0.0": {
       "type": "project",

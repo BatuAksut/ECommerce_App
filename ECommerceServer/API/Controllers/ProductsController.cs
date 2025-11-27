@@ -31,6 +31,10 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(VM_Create_Product model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var productToAdd = new Product
             {
                 Name = model.Name,

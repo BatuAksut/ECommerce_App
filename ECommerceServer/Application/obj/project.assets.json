@@ -2,6 +2,56 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "FluentValidation/12.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/11.3.1": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.11.0",
+          "FluentValidation.DependencyInjectionExtensions": "11.11.0"
+        },
+        "compile": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/12.1.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "12.1.0",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore/8.0.21": {
         "type": "package",
         "dependencies": {
@@ -212,6 +262,55 @@
     }
   },
   "libraries": {
+    "FluentValidation/12.1.0": {
+      "sha512": "FqWEn8BdbbFEHGanj9K8SVo+LyBeFWy2rolaE+e1TNUbifr8M7Iss+I1AqTSc8kjKtvjl/WN4XIHiRpslh42bA==",
+      "type": "package",
+      "path": "fluentvalidation/12.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.12.1.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.AspNetCore/11.3.1": {
+      "sha512": "FjkfrGGwC+25oH8QpX1ti3gxkFjDDtotkAQWyQz2CkwQwEfRKTANjhh77I79kY8dov2ydK1SY+e4jiOWsbbDdQ==",
+      "type": "package",
+      "path": "fluentvalidation.aspnetcore/11.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/net5.0/FluentValidation.AspNetCore.dll",
+        "lib/net5.0/FluentValidation.AspNetCore.xml",
+        "lib/net6.0/FluentValidation.AspNetCore.dll",
+        "lib/net6.0/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/12.1.0": {
+      "sha512": "p9ZnpVCUvkelSfqFYZP9aMtnuRlDRkrAAPqjQGG+1mVVn8zxE0bc1/RAFRBZKsPglbMBQOx8wXOZhg2fGstacQ==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/12.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.12.1.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/net8.0/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
     "Microsoft.EntityFrameworkCore/8.0.21": {
       "sha512": "WgCdRIS+hpq95zJo6oI9tvyQV/0EH9qJiD4FL60m+ghpHqHY6rY3D793HLe64yD85IHwumuX4hNJeHYeJEvM0g==",
       "type": "package",
@@ -573,27 +672,30 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Domain >= 1.0.0",
+      "FluentValidation >= 12.1.0",
+      "FluentValidation.AspNetCore >= 11.3.1",
+      "FluentValidation.DependencyInjectionExtensions >= 12.1.0",
       "Microsoft.EntityFrameworkCore >= 8.0.21"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Users\\Batuhan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\ECommerceApp\\ECommerceServer\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Batuhan\\Desktop\\ECommerce_App\\ECommerceServer\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\PC\\Desktop\\ECommerceApp\\ECommerceServer\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\ECommerceApp\\ECommerceServer\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Batuhan\\Desktop\\ECommerce_App\\ECommerceServer\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Batuhan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Batuhan\\Desktop\\ECommerce_App\\ECommerceServer\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Batuhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -602,14 +704,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\PC\\Desktop\\ECommerceApp\\ECommerceServer\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\PC\\Desktop\\ECommerceApp\\ECommerceServer\\Domain\\Domain.csproj"
+            "C:\\Users\\Batuhan\\Desktop\\ECommerce_App\\ECommerceServer\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Batuhan\\Desktop\\ECommerce_App\\ECommerceServer\\Domain\\Domain.csproj"
             }
           }
         }
@@ -624,12 +727,24 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[12.1.0, )"
+          },
+          "FluentValidation.AspNetCore": {
+            "target": "Package",
+            "version": "[11.3.1, )"
+          },
+          "FluentValidation.DependencyInjectionExtensions": {
+            "target": "Package",
+            "version": "[12.1.0, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.21, )"
@@ -651,7 +766,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

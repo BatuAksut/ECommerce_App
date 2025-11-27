@@ -1,10 +1,14 @@
+using Application.Validators.Products;
+using FluentValidation.AspNetCore;
+using Infrastructure.Filters;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt=>opt.Filters.Add<ValidationFilter>()).AddFluentValidation(con=>con.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>()).ConfigureApiBehaviorOptions(opt=>opt.SuppressModelStateInvalidFilter=true);
+
 
 builder.Services.AddPersistenceServices();
 
