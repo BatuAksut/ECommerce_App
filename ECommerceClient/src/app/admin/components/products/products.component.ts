@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BaseComponent, SpinnerType } from '../../../base/base.component';
 import { HttpClientService } from '../../../services/common/http-client.service';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
-import { HttpClient } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CreateComponent } from "./create/create.component";
 import { ListComponent } from "./list/list.component";
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-products',
-  imports: [NgxSpinnerModule, MatSidenavModule, CreateComponent, ListComponent],
+  imports: [NgxSpinnerModule, MatSidenavModule, CreateComponent, ListComponent, MatTableModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -18,7 +18,11 @@ export class ProductsComponent extends BaseComponent {
   constructor(spinner:NgxSpinnerService,private httpClientService:HttpClientService) {
    super(spinner);
   }
-
+@ViewChild(ListComponent) listComponents!: ListComponent;
+createdProduct(createdProduct: any) {
+   
+    this.listComponents.getProducts();
+  }
   ngOnInit(): void {
     
     

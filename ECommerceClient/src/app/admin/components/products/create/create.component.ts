@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
@@ -22,6 +22,7 @@ export class CreateComponent extends BaseComponent {
   {
     super(spinner)
   }
+  @Output() createdProduct: EventEmitter<any> = new EventEmitter();
 
   create(txtName:string,stock:string,price:string){
     this.showSpinner(SpinnerType.BallScaleMultiple);
@@ -29,6 +30,7 @@ export class CreateComponent extends BaseComponent {
       name:txtName,
       stock:parseInt(stock),
       price:parseFloat(price)
+      
     }
     if(txtName==null || txtName.length===0){
       this.alertify.message("Product name cannot be empty",{
@@ -45,6 +47,7 @@ export class CreateComponent extends BaseComponent {
         position:Position.TopRight
 
       });
+      this.createdProduct.emit(create_product);
     },(errorMessage:string)=>{
      this.alertify.message(errorMessage,{
       position:Position.TopRight,
