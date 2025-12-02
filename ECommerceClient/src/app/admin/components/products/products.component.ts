@@ -6,10 +6,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { CreateComponent } from "./create/create.component";
 import { ListComponent } from "./list/list.component";
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-products',
-  imports: [NgxSpinnerModule, MatSidenavModule, CreateComponent, ListComponent, MatTableModule],
+  imports: [NgxSpinnerModule, MatSidenavModule, CreateComponent, ListComponent, MatTableModule,MatDialogModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
