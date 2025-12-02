@@ -94,7 +94,7 @@ namespace API.Controllers
             }
             _productWriteRepository.Remove(productToDelete);
             await _productWriteRepository.SaveAsync();
-            return NoContent();
+            return Ok();
         }
     }
 

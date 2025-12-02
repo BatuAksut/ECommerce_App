@@ -5,11 +5,16 @@ import { List_Product } from '../../../../contracts/list_product';
 import { ProductService } from '../../../../services/common/models/product.service';
 import { BaseComponent, SpinnerType } from '../../../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DeleteDirective } from "../../../../directives/admin/delete.directive";
+
+declare var $ :any;
+
+
 
 @Component({
   selector: 'app-list',
-  standalone: true, // imports kullandığınız için standalone varsaydım
-  imports: [MatTableModule, MatPaginatorModule],
+  standalone: true, 
+  imports: [MatTableModule, MatPaginatorModule, DeleteDirective,DeleteDirective],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
@@ -19,7 +24,7 @@ export class ListComponent extends BaseComponent implements OnInit {
     super(spinner);
   }
 
-  displayedColumns: string[] = ['name', 'stock', 'price', 'createdAt', 'updatedAt'];
+  displayedColumns: string[] = ['name', 'stock', 'price', 'createdAt', 'updatedAt','edit','delete'];
   dataSource: MatTableDataSource<List_Product> = new MatTableDataSource<List_Product>();
   
   totalCount: number = 0;
@@ -46,6 +51,7 @@ export class ListComponent extends BaseComponent implements OnInit {
     this.totalCount = response.totalCount; 
   }
 
+  
   async pageChange() {
     await this.getProducts();
   }
