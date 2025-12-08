@@ -256,3 +256,4 @@ C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\bin\Debug\net8.0\Flue
 C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\bin\Debug\net8.0\Infrastructure.dll
 C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\bin\Debug\net8.0\Infrastructure.pdb
+C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\bin\Debug\net8.0\API.staticwebassets.runtime.json

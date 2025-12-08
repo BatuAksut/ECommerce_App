@@ -9,11 +9,12 @@ import { Create_Product } from '../../../../contracts/create_product';
 import { BaseComponent, SpinnerType } from '../../../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertifyService, MessageType, Position } from '../../../../services/admin/alertify.service';
+import { FileUploadComponent, FileUploadOptions } from '../../../../services/common/file-upload/file-upload.component';
 
 
 @Component({
   selector: 'app-create',
-  imports: [MatFormFieldModule,MatInputModule,MatButtonModule,MatDividerModule,MatIconModule],
+  imports: [MatFormFieldModule,MatInputModule,MatButtonModule,MatDividerModule,MatIconModule,FileUploadComponent],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
@@ -23,6 +24,15 @@ export class CreateComponent extends BaseComponent {
     super(spinner)
   }
   @Output() createdProduct: EventEmitter<any> = new EventEmitter();
+
+  @Output()fileUploadOptions:Partial<FileUploadOptions>={
+    controller:"products",
+    action:"upload",
+    isAdminPage:true,
+    explanation:"Select or drop product images here",
+    accept:".png,.jpg,.jpeg"
+  }
+
 
   create(txtName:string,stock:string,price:string){
     this.showSpinner(SpinnerType.BallScaleMultiple);
