@@ -1,5 +1,6 @@
 using Application.Validators.Products;
 using FluentValidation.AspNetCore;
+using Infrastructure;
 using Infrastructure.Filters;
 using Persistence;
 
@@ -11,6 +12,7 @@ builder.Services.AddControllers(opt=>opt.Filters.Add<ValidationFilter>()).AddFlu
 
 
 builder.Services.AddPersistenceServices();
+builder.Services.AddInfrastructureServices();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

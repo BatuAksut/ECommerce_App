@@ -1,0 +1,2 @@
+wwwroot\resource\product-images\0,7303539833797704.png
+wwwroot\resource\product-images\0,7403278994325219.png
