@@ -1,9 +1,15 @@
 ﻿using Application.Repositories;
+using Application.Repositories.File;
+using Application.Repositories.InvoiceFiles;
+using Application.Repositories.ProductImageFiles;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
 using Persistence.Repositories;
+using Persistence.Repositories.File;
+using Persistence.Repositories.InvoiceFiles;
+using Persistence.Repositories.ProductImageFiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +33,15 @@ namespace Persistence
             services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+            services.AddScoped<IFileReadRepository, FileReadRepository>();
+            services.AddScoped<IFileWriteRepository, FileWriteRepository>();
+            services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+            services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+            services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
+            services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+
+
+
         }
     }
 }

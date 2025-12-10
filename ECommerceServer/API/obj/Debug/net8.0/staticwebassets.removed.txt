@@ -1,2 +1,1 @@
-C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\wwwroot\resource\product-images\0,7303539833797704.png
-C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\wwwroot\resource\product-images\0,7403278994325219.png
+C:\Users\Batuhan\Desktop\ECommerce_App\ECommerceServer\API\wwwroot\resource\product-images\edit4124031.png

@@ -7,7 +7,7 @@ import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AlertifyService, MessageType, Position } from '../../admin/alertify.service';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../ui/custom-toastr.service';
 import { FileUploadDialogComponent, UploadState } from '../../../dialogs/file-upload-dialog/file-upload-dialog.component';
-import { DialogService } from '../dialog.service'; // Senin servisin
+import { DialogService } from '../dialog.service'; 
 
 @Component({
   selector: 'app-file-upload',
@@ -22,7 +22,7 @@ export class FileUploadComponent {
     private httpClientService: HttpClientService,
     private alertifyService: AlertifyService,
     private customToastrService: CustomToastrService,
-    private dialogService: DialogService // MatDialog kaldırıldı, sadece senin servisin kaldı
+    private dialogService: DialogService 
   ) { }
 
   public files: NgxFileDropEntry[] = [];
@@ -43,7 +43,7 @@ export class FileUploadComponent {
       });
     }
 
-    // Buradaki yapıya dokunmadım, sadece openDialog çağrısı tetikleniyor
+  
     this.openDialog(() => {
       this.httpClientService.post({
         controller: this.options.controller,
@@ -81,14 +81,14 @@ export class FileUploadComponent {
     });
   }
 
-  // ESKİ KOD KALDIRILDI, YERİNE SERVİS EKLENDİ
+
   openDialog(afterClosed: any): void {
     this.dialogService.openDialog({
       componentType: FileUploadDialogComponent,
       data: UploadState.Yes,
       afterClosed: afterClosed,
       options: {
-        width: "250px" // İstersen opsiyonel genişlik verebilirsin
+        width: "250px" 
       }
     });
   }

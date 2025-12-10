@@ -22,6 +22,37 @@ namespace Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Entities.AppFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("character varying(21)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppFiles");
+
+                    b.HasDiscriminator().HasValue("AppFile");
+
+                    b.UseTphMappingStrategy();
+                });
+
             modelBuilder.Entity("Domain.Entities.Customer", b =>
                 {
                     b.Property<Guid>("Id")
@@ -117,6 +148,23 @@ namespace Persistence.Migrations
                     b.HasIndex("ProductsId");
 
                     b.ToTable("OrderProduct");
+                });
+
+            modelBuilder.Entity("Domain.Entities.InvoiceFile", b =>
+                {
+                    b.HasBaseType("Domain.Entities.AppFile");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.HasDiscriminator().HasValue("InvoiceFile");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductImageFile", b =>
+                {
+                    b.HasBaseType("Domain.Entities.AppFile");
+
+                    b.HasDiscriminator().HasValue("ProductImageFile");
                 });
 
             modelBuilder.Entity("Domain.Entities.Order", b =>

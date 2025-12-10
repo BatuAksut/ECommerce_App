@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿    using Domain.Entities;
 using Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,6 +19,10 @@ namespace Persistence.Contexts
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<AppFile> AppFiles { get; set; }
+        public DbSet<InvoiceFile> InvoiceFiles { get; set; }
+        public DbSet<ProductImageFile> ProductImageFiles { get; set; }
 
         //Interceptor
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
