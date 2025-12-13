@@ -1,9 +1,10 @@
-﻿using Application.Repositories;
+﻿using Application.Abstractions.Storage;
+using Application.Abstractions.Storage.Local;
+using Application.Repositories;
 using Application.Repositories.File;
 using Application.Repositories.InvoiceFiles;
 using Application.Repositories.ProductImageFiles;
 using Application.RequestParameters;
-using Application.Services;
 using Application.Viewmodels.Products;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -18,19 +19,20 @@ namespace API.Controllers
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderWriteRepository _orderWriteRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private IFileService _fileService;
         readonly IFileWriteRepository _fileWriteRepository;
         readonly IFileReadRepository _fileReadRepository;
         readonly IProductImageFileWriteRepository _productImageFileWriteRepository;
         readonly IProductImageFileReadRepository _productImageFileReadRepository;
         readonly IInvoiceFileReadRepository _invoiceFileReadRepository;
         readonly IInvoiceFileWriteRepository _invoiceFileWriteRepository;
+        private readonly IStorageService _storageService;
 
-        public ProductsController(IProductWriteRepository productWriteRepository, 
-            IProductReadRepository productReadRepository, 
-            IOrderWriteRepository orderWriteRepository, 
-            IWebHostEnvironment webHostEnvironment, 
-            IFileService fileService, 
+
+        public ProductsController(IProductWriteRepository productWriteRepository,
+            IProductReadRepository productReadRepository,
+            IOrderWriteRepository orderWriteRepository,
+            IWebHostEnvironment webHostEnvironment,
+            IStorageService storageService,
             IFileWriteRepository fileWriteRepository,
             IFileReadRepository fileReadRepository, 
             IProductImageFileWriteRepository productImageFileWriteRepository, 
@@ -42,7 +44,7 @@ namespace API.Controllers
             _productReadRepository = productReadRepository;
             _orderWriteRepository = orderWriteRepository;
             _webHostEnvironment = webHostEnvironment;
-            _fileService = fileService;
+            _storageService = storageService;
             _fileWriteRepository = fileWriteRepository;
             _fileReadRepository = fileReadRepository;
             _productImageFileWriteRepository = productImageFileWriteRepository;
@@ -129,13 +131,21 @@ namespace API.Controllers
         [Route("[action]")]
         public async Task<IActionResult> Upload()
         {
-           var datas= await _fileService.UploadAsync("resource/product-images",Request.Form.Files);
+            
+            var datas = await _storageService.UploadAsync("files", Request.Form.Files);
+        
             await _productImageFileWriteRepository.AddRangeAsync(
-                datas.Select(d=>new ProductImageFile() {
-                FileName=d.fileName,
-                Path=d.path,
+                datas.Select(d => new ProductImageFile()
+                {
+              
+                    FileName = d.fileName,
+                    Path = d.pathOrContainer,
+                    Storage = _storageService.StorageName
+
+
+
                 }).ToList()
-                );
+            );
             await _productImageFileWriteRepository.SaveAsync();
             return Ok();
         }

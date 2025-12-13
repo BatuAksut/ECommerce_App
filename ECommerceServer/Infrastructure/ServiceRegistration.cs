@@ -1,5 +1,10 @@
-﻿using Application.Services;
+﻿using Application.Abstractions.Azure;
+using Application.Abstractions.Storage;
+using Application.Abstractions.Storage.Local;
 using Infrastructure.Services;
+using Infrastructure.Services.Storage;
+using Infrastructure.Services.Storage.Azure;
+using Infrastructure.Services.Storage.Local;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -9,11 +14,38 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public static class ServiceRegistration
+    public static partial class ServiceRegistration
     {
-        public static void AddInfrastructureServices(this IServiceCollection serviceCollection) 
+        public static void AddStorage(this IServiceCollection serviceCollection, StorageType storageType)
         {
-            serviceCollection.AddScoped<IFileService,FileService>();
+            switch (storageType)
+            {
+                case StorageType.Local:
+                    serviceCollection.AddScoped<ILocalStorage, LocalStorage>();
+                    serviceCollection.AddScoped<IStorage, LocalStorage>();
+                    break;
+                case StorageType.Azure:
+                    serviceCollection.AddScoped<IAzureStorage, AzureStorage>();
+                    // serviceCollection.AddScoped<IStorage, AzureStorage>();
+                    break;
+             
+                default:
+                    //  (Best Practice)
+                    serviceCollection.AddScoped<ILocalStorage, LocalStorage>();
+                    serviceCollection.AddScoped<IStorage, LocalStorage>();
+                    break;
+            }
+        }
+        public static void AddStorage<T>(this IServiceCollection serviceCollection) where T : class, IStorage
+        {
+       
+            serviceCollection.AddScoped<IStorage, T>();
+        }
+
+        public static void AddInfrastructureServices(this IServiceCollection serviceCollection)
+        {
+
+            serviceCollection.AddScoped<IStorageService, StorageService>();
         }
     }
 }

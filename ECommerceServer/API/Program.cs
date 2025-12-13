@@ -2,7 +2,9 @@ using Application.Validators.Products;
 using FluentValidation.AspNetCore;
 using Infrastructure;
 using Infrastructure.Filters;
+using Infrastructure.Services.Storage.Azure;
 using Persistence;
+using static Infrastructure.ServiceRegistration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddControllers(opt=>opt.Filters.Add<ValidationFilter>()).AddFlu
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
+
+builder.Services.AddStorage<AzureStorage>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
