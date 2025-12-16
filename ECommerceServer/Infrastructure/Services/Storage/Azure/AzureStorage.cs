@@ -14,7 +14,7 @@
 
             private readonly BlobServiceClient _blobServiceClient;
 
-            // HATA 1 ÇÖZÜMÜ: Bu değişken tanımlı değildi, buraya ekledik.
+            
             private BlobContainerClient _blobContainerClient;
 
             public AzureStorage(IConfiguration configuration)
@@ -37,7 +37,7 @@
                     BlobClient blobClient = _blobContainerClient.GetBlobClient(fileNewName);
 
                     await blobClient.UploadAsync(file.OpenReadStream(), overwrite: true);
-                    datas.Add((fileNewName, pathOrContainer));
+                    datas.Add((fileNewName, $"{pathOrContainer}/{fileNewName}"));
                 }
 
                 return datas;

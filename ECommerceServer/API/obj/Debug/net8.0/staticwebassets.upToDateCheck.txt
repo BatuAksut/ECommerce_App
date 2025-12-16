@@ -1,1 +1,5 @@
+wwwroot\photos\edit4124031.png
+wwwroot\resource\product-images\delete-1.png
+wwwroot\resource\product-images\delete.png
+wwwroot\resource\product-images\edit4124031-1.png
 wwwroot\resource\product-images\edit4124031.png

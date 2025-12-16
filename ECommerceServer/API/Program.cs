@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using Infrastructure;
 using Infrastructure.Filters;
 using Infrastructure.Services.Storage.Azure;
+using Infrastructure.Services.Storage.Local;
 using Persistence;
 using static Infrastructure.ServiceRegistration;
 

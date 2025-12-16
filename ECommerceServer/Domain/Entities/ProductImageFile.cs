@@ -9,6 +9,7 @@ namespace Domain.Entities
 {
     public class ProductImageFile:AppFile
     {
+        public ICollection<Product> Products { get; set; }
 
     }
 }

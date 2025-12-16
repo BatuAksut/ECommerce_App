@@ -6,6 +6,8 @@ import { ProductService } from '../../../../services/common/models/product.servi
 import { BaseComponent, SpinnerType } from '../../../../base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DeleteDirective } from "../../../../directives/admin/delete.directive";
+import { DialogService } from '../../../../services/common/dialog.service';
+import { SelectProductImageDialogComponent } from '../../../../dialogs/select-product-image-dialog/select-product-image-dialog.component';
 
 declare var $ :any;
 
@@ -20,11 +22,11 @@ declare var $ :any;
 })
 export class ListComponent extends BaseComponent implements OnInit {
 
-  constructor(private productService: ProductService, spinner: NgxSpinnerService) {
+  constructor(private productService: ProductService, spinner: NgxSpinnerService,private dialogService:DialogService) {
     super(spinner);
   }
 
-  displayedColumns: string[] = ['name', 'stock', 'price', 'createdAt', 'updatedAt','edit','delete'];
+  displayedColumns: string[] = ['name', 'stock', 'price', 'createdAt', 'updatedAt','photos','edit','delete'];
   dataSource: MatTableDataSource<List_Product> = new MatTableDataSource<List_Product>();
   
   totalCount: number = 0;
@@ -49,6 +51,17 @@ export class ListComponent extends BaseComponent implements OnInit {
 
     this.dataSource.data = response.products;
     this.totalCount = response.totalCount; 
+  }
+
+  addProductImages(id: string) {
+    this.dialogService.openDialog({
+      componentType: SelectProductImageDialogComponent,
+      data: id,
+      options: { width: "1400px" ,height:"600px"},
+      afterClosed: () => {
+        console.log("Dialog closed.");
+      } 
+  })
   }
 
   

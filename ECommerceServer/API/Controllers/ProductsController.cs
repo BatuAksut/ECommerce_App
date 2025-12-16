@@ -129,23 +129,19 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Upload()
+        public async Task<IActionResult> Upload(string id)
         {
             
-            var datas = await _storageService.UploadAsync("files", Request.Form.Files);
+            List<(string fileName,string pathOrContainerName)> result= await _storageService.UploadAsync("photos", Request.Form.Files);
         
-            await _productImageFileWriteRepository.AddRangeAsync(
-                datas.Select(d => new ProductImageFile()
-                {
-              
-                    FileName = d.fileName,
-                    Path = d.pathOrContainer,
-                    Storage = _storageService.StorageName
-
-
-
-                }).ToList()
-            );
+            var product = await _productReadRepository.GetByIdAsync(id);
+            await _productImageFileWriteRepository.AddRangeAsync(result.Select(r=>new ProductImageFile
+            {
+                FileName = r.fileName,
+                Path = r.pathOrContainerName,
+                Storage = _storageService.StorageName,
+                Products = new List<Product> { product }
+            }).ToList());
             await _productImageFileWriteRepository.SaveAsync();
             return Ok();
         }
