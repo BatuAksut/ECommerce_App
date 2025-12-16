@@ -3,16 +3,16 @@
   <app-file-upload [options]="options"></app-file-upload>
 
 
-  <mat-card class="example-card" appearance="outlined" *ngFor="let i of x">
+  <mat-card class="example-card" appearance="outlined" *ngFor="let i of images">
   <mat-card-header>
  
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="{{i.path}}" alt="Photo of a Shiba Inu">
   <mat-card-content>
 
   </mat-card-content>
   <mat-card-actions>
-    <button  mat-raised-button color="warn">Delete</button>
+    <button  mat-raised-button color="warn" (click)="deleteImage(i.id,$event)">Delete</button>
     
   </mat-card-actions>
 </mat-card>
