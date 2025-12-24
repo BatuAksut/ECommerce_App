@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Commands.CreateProduct
+namespace Application.Features.Commands.Product.UpdateProduct
 {
-    public class CreateProductCommandResponse
+    public class UpdateProductCommandResponse
     {
     }
 }

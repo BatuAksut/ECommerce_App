@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Commands.CreateProduct
+namespace Application.Features.Commands.Product.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
     {
@@ -18,8 +18,9 @@ namespace Application.Features.Commands.CreateProduct
         }
         public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
-           
-            var productToAdd = new Product
+
+            // Avoiding namespace conflict by using full namespace for Product entity
+            var productToAdd = new Domain.Entities.Product
             {
                 Name = request.Name,
                 Stock = request.Stock,

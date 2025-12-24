@@ -46,3 +46,5 @@ ECommerceServer/appsettings.Local.json
 *.tmp
 .DS_Store
 .env
+[Bb]in/
+[Oo]bj/
