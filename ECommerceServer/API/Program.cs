@@ -1,3 +1,4 @@
+using Application;
 using Application.Validators.Products;
 using FluentValidation.AspNetCore;
 using Infrastructure;
@@ -16,6 +17,8 @@ builder.Services.AddControllers(opt=>opt.Filters.Add<ValidationFilter>()).AddFlu
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
+
 
 builder.Services.AddStorage<AzureStorage>();
 
