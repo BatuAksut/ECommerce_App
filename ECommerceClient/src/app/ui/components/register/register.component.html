@@ -1,0 +1,54 @@
+<div class="login-container">
+  <form class="login-form" [formGroup]="frm" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+      <label for="fullname" class="form-label">Full Name</label>
+      <input type="text" formControlName="fullname" class="form-control" 
+             [ngClass]="{'is-invalid': f['fullname'].touched && f['fullname'].errors}">
+      <div class="invalid-feedback" *ngIf="f['fullname'].errors?.['required']">Full name is required.</div>
+      <div class="invalid-feedback" *ngIf="f['fullname'].errors?.['minlength']">Must be at least 2 characters.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" formControlName="username" class="form-control"
+             [ngClass]="{'is-invalid': f['username'].touched && f['username'].errors}">
+      <div class="invalid-feedback" *ngIf="f['username'].errors?.['required']">Username is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" formControlName="email" class="form-control"
+             [ngClass]="{'is-invalid': f['email'].touched && f['email'].errors}">
+      <div class="invalid-feedback" *ngIf="f['email'].errors?.['required']">Email address is required.</div>
+      <div class="invalid-feedback" *ngIf="f['email'].errors?.['email']">Please enter a valid email address.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" formControlName="password" class="form-control"
+             [ngClass]="{'is-invalid': f['password'].touched && f['password'].errors}">
+      <div class="invalid-feedback" *ngIf="f['password'].errors?.['required']">Password is required.</div>
+      <div class="invalid-feedback" *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="passwordconfirm" class="form-label">Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" class="form-control"
+             [ngClass]="{'is-invalid': f['confirmPassword'].touched && (f['confirmPassword'].errors || (frm.touched && frm.errors?.['passwordMismatch']))}">
+      
+      <div class="invalid-feedback" *ngIf="f['confirmPassword'].errors?.['required']">
+        Please confirm your password.
+      </div>
+      <div class="invalid-feedback" *ngIf="f['confirmPassword'].errors?.['minlength']">
+        Confirmation must be at least 6 characters.
+      </div>
+      
+      <div class="invalid-feedback" *ngIf="frm.errors?.['passwordMismatch'] && !f['confirmPassword'].errors">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="frm.invalid" class="btn btn-primary w-100">Register</button>
+  </form>
+</div>

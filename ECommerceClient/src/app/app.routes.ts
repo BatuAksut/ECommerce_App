@@ -6,6 +6,7 @@ import { ProductsComponent } from './admin/components/products/products.componen
 import { LayoutComponent } from './admin/layout/layout.component';
 import { HomeComponent } from './ui/components/home/home.component';
 import { CartComponent } from './ui/components/cart/cart.component';
+import { RegisterComponent } from './ui/components/register/register.component';
 
 export const routes: Routes = [
   // 🌟 ADMIN AREA
@@ -17,7 +18,8 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'orders', component: OrderComponent },
       { path: 'products', component: ProductsComponent },
-      {path:"",component:DashboardComponent}
+      {path:"",component:DashboardComponent},
+    
     ]
   },
 
@@ -25,6 +27,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'shop/cart', component: CartComponent },
   { path: 'shop/products', component: ProductsComponent },
+    {path:"register",component:RegisterComponent},
 
   // 🌟 Fallback route (404)
   { path: '**', redirectTo: '' }
