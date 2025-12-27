@@ -2,6 +2,8 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators,ValidatorFn } from '@angular/forms';
 import { User } from '../../../entities/user';
+import { UserService } from '../../../services/common/models/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -11,8 +13,8 @@ import { User } from '../../../entities/user';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) { }
-
+  constructor(private formBuilder: FormBuilder,private userService:UserService,private toastr: ToastrService) { }
+backendErrors: string[] = [];
   frm!: FormGroup;
   ngOnInit(): void {
   this.frm = this.formBuilder.group({
@@ -27,21 +29,29 @@ export class RegisterComponent implements OnInit {
 }
   get f() { return this.frm.controls; }
 
-  onSubmit(): void {
+async onSubmit(): Promise<void> {
+  this.backendErrors = [];
   if (this.frm.valid) {
-    // Formdaki tüm değerleri alıyoruz
     const { confirmPassword, ...userData } = this.frm.value;
-
-    // 'userData' artık User interface'ine uygun (confirmPassword içermiyor)
     const user: User = userData as User;
 
-    console.log('Form Submitted!', user);
-    
-    // Burada servise 'user' objesini gönderebilirsin:
-    // this.userService.register(user).subscribe(...);
+    const result = await this.userService.create(user);
+
+    if (result.isSuccess) {
+      this.toastr.success(result.message, "Registration Successful");
+    } else {
+      this.backendErrors = result.errors || ["An unknown error occurred."];
+      this.toastr.error(result.message, "Registration Failed");
+      
+   
+      if (result.errors) {
+         result.errors.forEach(err => console.error(err));
+       
+      }
+    }
   } else {
-    this.frm.markAllAsTouched(); // Hataları görünür yap
-    console.log('Form is invalid');
+    
+    this.frm.markAllAsTouched();
   }
 }
 

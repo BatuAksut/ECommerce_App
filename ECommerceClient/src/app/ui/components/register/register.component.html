@@ -7,7 +7,7 @@
              [ngClass]="{'is-invalid': f['fullname'].touched && f['fullname'].errors}">
       <div class="invalid-feedback" *ngIf="f['fullname'].errors?.['required']">Full name is required.</div>
       <div class="invalid-feedback" *ngIf="f['fullname'].errors?.['minlength']">Must be at least 2 characters.</div>
-    </div>
+    </div>  
 
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
@@ -49,6 +49,11 @@
       </div>
     </div>
 
+    <div *ngIf="backendErrors.length > 0" class="alert alert-danger">
+  <ul>
+    <li *ngFor="let error of backendErrors">{{ error }}</li>
+  </ul>
+</div>
     <button type="submit" [disabled]="frm.invalid" class="btn btn-primary w-100">Register</button>
   </form>
 </div>

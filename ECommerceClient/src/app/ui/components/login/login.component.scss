@@ -1,0 +1,19 @@
+/* Dış çerçeve: Ekranın tamamını kaplar ve içeriği ortalar */
+.login-container {
+  display: flex;
+  justify-content: center; /* Yatayda ortalama */
+  align-items: center;     /* Dikeyde ortalama */
+  height: 100vh;           /* Ekran yüksekliğinin tamamı */
+  width: 100%;
+  background-color: #f4f7f6; /* Opsiyonel: Hafif bir arka plan rengi */
+}
+
+/* Formun kendisi: Genişliğini kontrol ederiz */
+.login-form {
+  width: 100%;
+  max-width: 400px;        /* Formun çok büyümesini engeller */
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Profesyonel bir gölge */
+}

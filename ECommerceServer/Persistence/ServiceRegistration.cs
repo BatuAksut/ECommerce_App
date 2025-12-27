@@ -3,6 +3,7 @@ using Application.Repositories.File;
 using Application.Repositories.InvoiceFiles;
 using Application.Repositories.ProductImageFiles;
 using Domain.Entities;
+using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
@@ -26,6 +27,8 @@ namespace Persistence
             {
                 opt.UseNpgsql(Configuration.ConnectionString);
             });
+
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
