@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace Application.Features.Commands.AppUser.LoginUser
     {
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
+        public Token? Token { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Application.Abstractions.Azure;
 using Application.Abstractions.Storage;
 using Application.Abstractions.Storage.Local;
+using Application.Abstractions.Token;
 using Infrastructure.Services;
 using Infrastructure.Services.Storage;
 using Infrastructure.Services.Storage.Azure;
 using Infrastructure.Services.Storage.Local;
+using Infrastructure.Services.Token;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -46,6 +48,8 @@ namespace Infrastructure
         {
 
             serviceCollection.AddScoped<IStorageService, StorageService>();
+            serviceCollection.AddScoped<ITokenHandler, TokenHandler>();
+
         }
     }
 }

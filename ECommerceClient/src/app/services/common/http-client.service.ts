@@ -39,13 +39,13 @@ export class HttpClientService {
     return this.httpClient.get<T>(url, { headers: requestParams.headers });
   }
 
-  post<T>(requestParams: Partial<RequestParams>, body: Partial<T>): Observable<T> {
+  post<T>(requestParams: Partial<RequestParams>, body: any): Observable<T> {
     
     const url = this.generateUrl(requestParams);
     return this.httpClient.post<T>(url, body, { headers: requestParams.headers });
   }
 
-  put<T>(requestParams: Partial<RequestParams>, body: Partial<T>): Observable<T> {
+  put<T>(requestParams: Partial<RequestParams>, body: any): Observable<T> {
 
     const url = this.generateUrl(requestParams);
     return this.httpClient.put<T>(url, body, { headers: requestParams.headers });
