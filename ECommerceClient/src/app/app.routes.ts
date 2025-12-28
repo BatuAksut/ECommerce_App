@@ -8,6 +8,7 @@ import { HomeComponent } from './ui/components/home/home.component';
 import { CartComponent } from './ui/components/cart/cart.component';
 import { RegisterComponent } from './ui/components/register/register.component';
 import { LoginComponent } from './ui/components/login/login.component';
+import { authGuard } from './guards/common/auth.guard';
 
 export const routes: Routes = [
   // 🌟 ADMIN AREA
@@ -21,7 +22,7 @@ export const routes: Routes = [
       { path: 'products', component: ProductsComponent },
       {path:"",component:DashboardComponent},
     
-    ]
+    ],canActivate: [authGuard]
   },
 
   // 🌟 PUBLIC / UI AREA
