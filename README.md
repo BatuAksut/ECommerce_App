@@ -58,11 +58,11 @@ The solution follows the **Onion Architecture** to decouple dependencies:
 - [x] SEO Friendly URL Generation.
 
 ### Upcoming Features (Roadmap)
-- [ ] **Azure Blob Storage** Integration (Video 31).
-- [ ] **CQRS** Pattern & **MediatR** Implementation (Video 35).
-- [ ] **Identity** & **JWT** Authentication (Video 40).
-- [ ] **SignalR** for Real-Time Notifications (Video 50).
-- [ ] **CI/CD** Pipeline to Azure Web App (Video 71).
+- [ ] **Azure Blob Storage** Integration.
+- [ ] **CQRS** Pattern & **MediatR** Implementation.
+- [ ] **Identity** & **JWT** Authentication.
+- [ ] **SignalR** for Real-Time Notifications.
+- [ ] **CI/CD** Pipeline to Azure Web App.
 
 ---
 
